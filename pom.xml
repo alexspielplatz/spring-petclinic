@@ -37,6 +37,7 @@
     <maven-checkstyle.version>3.6.0</maven-checkstyle.version>
     <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version>
     <spring-format.version>0.0.43</spring-format.version>
+    <applicationinsights.agent.version>3.6.2</applicationinsights.agent.version>
 
   </properties>
 
@@ -120,6 +121,9 @@
       <artifactId>font-awesome</artifactId>
       <version>${webjars-font-awesome.version}</version>
     </dependency>
+
+    <!-- Azure stuff -->
+
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -285,6 +289,31 @@
         <?m2e ignore?>
         <groupId>org.cyclonedx</groupId>
         <artifactId>cyclonedx-maven-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.8.1</version>
+        <executions>
+          <execution>
+            <id>copy-agent</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <artifactItems>
+            <artifactItem>
+              <groupId>com.microsoft.azure</groupId>
+              <artifactId>applicationinsights-agent</artifactId>
+              <version>${applicationinsights.agent.version}</version>
+              <outputDirectory>${project.build.directory}/agent</outputDirectory>
+              <destFileName>applicationinsights-agent.jar</destFileName>
+            </artifactItem>
+          </artifactItems>
+        </configuration>
       </plugin>
 
     </plugins>

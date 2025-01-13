@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PetClinicApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <envs>
+      <env name="APPLICATIONINSIGHTS_CONNECTION_STRING" value="InstrumentationKey=785950b9-a4df-41ed-8980-af23c03116f3;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/;ApplicationId=4fee8499-0925-4437-b1eb-5e6883e8d9b3" />
+      <env name="SPRING_PROFILES_ACTIVE" value="postgres" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="org.springframework.samples.petclinic.PetClinicApplication" />
+    <module name="spring-petclinic" />
+    <option name="VM_PARAMETERS" value="-javaagent:target/agent/applicationinsights-agent.jar" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="org.springframework.samples.petclinic.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
