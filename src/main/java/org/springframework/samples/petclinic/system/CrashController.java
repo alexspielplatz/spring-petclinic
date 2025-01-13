@@ -15,6 +15,8 @@
  */
 package org.springframework.samples.petclinic.system;
 
+import io.opentelemetry.api.trace.SpanKind;
+import io.opentelemetry.instrumentation.annotations.WithSpan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -28,6 +30,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 class CrashController {
 
+	@WithSpan(kind = SpanKind.SERVER)
 	@GetMapping("/oups")
 	public String triggerException() {
 		throw new RuntimeException(

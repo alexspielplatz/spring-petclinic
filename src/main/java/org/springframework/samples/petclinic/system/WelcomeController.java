@@ -16,12 +16,15 @@
 
 package org.springframework.samples.petclinic.system;
 
+import io.opentelemetry.api.trace.SpanKind;
+import io.opentelemetry.instrumentation.annotations.WithSpan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 class WelcomeController {
 
+	@WithSpan(kind = SpanKind.SERVER)
 	@GetMapping("/")
 	public String welcome() {
 		return "welcome";
